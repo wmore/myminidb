@@ -13,7 +13,7 @@ public class MTableFileControl {
     public void writeToFile(String fileName,String content){
         FileWriter fw = null;
         try {
-            fw = new FileWriter(FILEPATH + fileName);
+            fw = new FileWriter(FILEPATH + fileName,true);
             fw.append(content);
             fw.flush();
             fw.close();

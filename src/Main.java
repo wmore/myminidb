@@ -11,7 +11,7 @@ public class Main {
 //        writeTest();
 //        readTest();
         DBEngine dbEngine = new DBEngine();
-        dbEngine.writeTable("test");
+        dbEngine.writeTable("lalal");
     }
 
     public static  void writeTest(){

@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4c3facd9-ae25-453e-89c7-97aa4ffd9841" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/myminidb/Main.class" afterPath="$PROJECT_DIR$/out/production/myminidb/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/myminidb/db/bean/DBEngine.class" afterPath="$PROJECT_DIR$/out/production/myminidb/db/bean/DBEngine.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/myminidb/db/filecontrol/MTableFileControl.class" afterPath="$PROJECT_DIR$/out/production/myminidb/db/filecontrol/MTableFileControl.class" />
+    <list default="true" id="4c3facd9-ae25-453e-89c7-97aa4ffd9841" name="Default" comment="wyue&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="06ea49f5-a751-4563-8a2d-bb72aff18b24" name="Failed commit: Default" comment="wyue&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/files/SUBS_TABLES.txt" afterPath="$PROJECT_DIR$/files/SUBS_TABLES.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/db/bean/DBEngine.java" afterPath="$PROJECT_DIR$/src/db/bean/DBEngine.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/db/filecontrol/MTableFileControl.java" afterPath="$PROJECT_DIR$/src/db/filecontrol/MTableFileControl.java" />
     </list>
     <ignored path="myminidb.iws" />
@@ -18,6 +14,7 @@
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <file path="$PROJECT_DIR$/files/SUBS_TABLES.txt" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,14 +62,24 @@
       <file leaf-file-name="DBEngine.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/db/bean/DBEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
-              <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+            <state relative-caret-position="220">
+              <caret line="82" column="16" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#683#699#0" expanded="true" />
-                <element signature="e#1630#1649#0" expanded="true" />
-                <element signature="e#1754#1762#0" expanded="true" />
+                <element signature="e#1638#1657#0" expanded="true" />
+                <element signature="e#1762#1770#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SUBS_TABLES.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/files/SUBS_TABLES.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,6 +98,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="wmore" />
         <option value="wyue" />
       </list>
     </option>
@@ -110,10 +118,10 @@
         <option value="$PROJECT_DIR$/src/db/bean/MInteger.java" />
         <option value="$PROJECT_DIR$/src/db/bean/MRow.java" />
         <option value="$PROJECT_DIR$/src/db/bean/MTable.java" />
-        <option value="$PROJECT_DIR$/src/db/bean/DBEngine.java" />
         <option value="$PROJECT_DIR$/src/db/filecontrol/MTableFileControl.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/files/SUBS_TABLES.txt" />
+        <option value="$PROJECT_DIR$/src/db/bean/DBEngine.java" />
       </list>
     </option>
   </component>
@@ -672,12 +680,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1458911328647</updated>
-      <workItem from="1458911332564" duration="21549000" />
+      <workItem from="1458911332564" duration="21875000" />
     </task>
+    <task id="LOCAL-00001" summary="wyue&#10;">
+      <created>1459058170062</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1459058170062</updated>
+    </task>
+    <task id="LOCAL-00002" summary="wyue&#10;">
+      <created>1459058476199</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1459058476199</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21549000" />
+    <option name="totallyTimeSpent" value="21875000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -685,10 +708,10 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -716,6 +739,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="wyue&#10;" />
     <option name="LAST_COMMIT_MESSAGE" value="wyue&#10;" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -844,14 +868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/files/SUBS_TABLES.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="45" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/db/filecontrol/MTableFileControl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-75">
@@ -862,15 +878,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/files/SUBS_TABLES.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/db/bean/DBEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+        <state relative-caret-position="220">
+          <caret line="82" column="16" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#683#699#0" expanded="true" />
-            <element signature="e#1630#1649#0" expanded="true" />
-            <element signature="e#1754#1762#0" expanded="true" />
+            <element signature="e#1638#1657#0" expanded="true" />
+            <element signature="e#1762#1770#0" expanded="true" />
           </folding>
         </state>
       </provider>
