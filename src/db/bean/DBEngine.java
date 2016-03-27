@@ -39,12 +39,17 @@ public class DBEngine {
     private MTableFileControl mTableFileControl = new MTableFileControl();
 
     final String SUBS_TABLES = "SUBS_TABLES.txt";
+    final String SUBS_TABLES_ATTRIBUTE = "SUBS_TABLES_ATTRIBUTE.txt";
 
     public DBEngine() {
     }
 
     public void createTable(String name, ArrayList<String> attribute_types, ArrayList<String> attribute_names) {
         MTable newTable = new MTable(name, attribute_types, attribute_names);
+        String element;
+        for (int i = 0; i < attribute_types.size(); i++) {
+            element = attribute_names.get(i) + "," + attribute_types;
+        }
         tablesMap.put(name, newTable);
     }
 
@@ -75,6 +80,7 @@ public class DBEngine {
         for (int i=0;i<length;i++){
             if (fileContent.split("\\$_\\$")[i].split(":")[0].equals(tableName)){
                 System.out.println(tableName+"表已经存在");
+                System.out.println(tableName + "表已经存在");
                 return;
             }
         }
