@@ -11,7 +11,27 @@ public class Main {
 //        writeTest();
 //        readTest();
         DBEngine dbEngine = new DBEngine();
-        dbEngine.writeTable("lalal");
+//        dbEngine.writeTable("lalal");
+
+
+        ArrayList<String> types = new ArrayList<String>();
+        ArrayList<String> names = new ArrayList<String>();
+        ArrayList<String> values = new ArrayList<String>();
+        for (int i =0 ;i <2;i ++){
+            types.add("CHAR");
+            names.add("attr"+(i+1));
+            values.add("value"+(i+1));
+        }
+
+        dbEngine.createTable("test",types,names);
+        dbEngine.insertVaulesTable("test",names,values);
+        System.out.println(dbEngine.queryAttributeTuple("test"));
+
+//        System.out.println(dbEngine.queryAttributeTuple("lala"));
+//        System.out.println(dbEngine.getTableStructure("hia").size());
+
+
+
     }
 
     public static  void writeTest(){
