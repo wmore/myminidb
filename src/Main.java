@@ -1,3 +1,4 @@
+import db.bean.DBEngine;
 import db.filecontrol.MTableFileControl;
 import net.sf.json.JSONObject;
 
@@ -7,8 +8,10 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        writeTest();
-        readTest();
+//        writeTest();
+//        readTest();
+        DBEngine dbEngine = new DBEngine();
+        dbEngine.writeTable("test");
     }
 
     public static  void writeTest(){

@@ -1,6 +1,7 @@
 package db.filecontrol;
 
 import java.io.*;
+import java.util.ArrayList;
 
 /**
  * Created by wangyue on 16/3/26.
@@ -13,7 +14,7 @@ public class MTableFileControl {
         FileWriter fw = null;
         try {
             fw = new FileWriter(FILEPATH + fileName);
-            fw.write(content);
+            fw.append(content);
             fw.flush();
             fw.close();
         }catch (Exception e){
@@ -27,7 +28,10 @@ public class MTableFileControl {
         StringBuilder content = new StringBuilder();
         String tempString = null;
         try {
-            fr = new FileReader(FILEPATH+fileName);
+            File file = new File(FILEPATH+fileName);
+            if (!file.exists())
+                file.createNewFile();
+            fr = new FileReader(file);
             br = new BufferedReader(fr);
             try {
                 while ((tempString = br.readLine())!=null) {
@@ -40,9 +44,14 @@ public class MTableFileControl {
                 br.close();
             if (fr!=null)
                 fr.close();
+
         }catch (Exception e){
             e.printStackTrace();
         }
         return content.toString();
     }
+
+
+
+
 }
