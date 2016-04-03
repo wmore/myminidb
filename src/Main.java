@@ -20,25 +20,39 @@ public class Main {
         DBEngine dbEngine = new DBEngine();
 //        dbEngine.writeTable("lalal");
 
-
-        ArrayList<String> types = new ArrayList<String>();
-        ArrayList<String> names = new ArrayList<String>();
-        ArrayList<String> values = new ArrayList<String>();
-        for (int i =0 ;i <2;i ++){
-            types.add("CHAR");
-            names.add("attr"+(i+1));
-            values.add("D"+(i+1));
-        }
-
+//
+//        ArrayList<String> types = new ArrayList<String>();
+//        ArrayList<String> names = new ArrayList<String>();
+//        ArrayList<String> values = new ArrayList<String>();
+//        for (int i =0 ;i <2;i ++){
+//            types.add("CHAR");
+//            names.add("attr"+(i+1));
+//            values.add("I"+(i+1));
+//        }
+//        System.out.println(dbEngine.queryAttributeTuple("test"));
 //        dbEngine.createTable("test",types,names);
 //        dbEngine.insertVaulesTable("test",names,values);
 //        dbEngine.truncateTable("test");
-        dbEngine.deleteValues("test",names,values);
+//        dbEngine.deleteValues("test",names,values);
         System.out.println(dbEngine.queryAttributeTuple("test"));
 
 //        System.out.println(dbEngine.queryAttributeTuple("lala"));
 //        System.out.println(dbEngine.getTableStructure("hia").size());
 
+
+//        ArrayList<String> updateNames = new ArrayList<String>(2);
+//        updateNames.add("attr1");updateNames.add("attr2");
+
+//        ArrayList<String> updateValues = new ArrayList<String>(2);
+//        updateValues.add("IIIII!");
+//        updateValues.add("IIIII!");
+//        dbEngine.updateValues("test",names,values,updateNames,updateValues);
+
+        ArrayList<String> conNames = new ArrayList<String>(1);
+        ArrayList<String> conValues = new ArrayList<String>(1);
+        conNames.add("attr1");
+        conValues.add("D1");
+        System.out.println(dbEngine.queryAttributeTupleByCondition("test",conNames,conValues));
 
     }
 

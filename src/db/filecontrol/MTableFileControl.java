@@ -59,9 +59,15 @@ public class MTableFileControl {
     }
 
     public boolean deleteString(String fileName,String deletedStr){
+        return updateString(fileName,deletedStr,"");
+    }
+
+    public boolean updateString(String fileName,String oldContent,String newContent){
         String fileContent = readFile(fileName);
         deleteFile(fileName);
-        writeToFile(fileName,fileContent.replaceAll(deletedStr,""));
+        writeToFile(fileName,fileContent.replaceAll(oldContent,newContent));
         return true;
     }
+
+
 }

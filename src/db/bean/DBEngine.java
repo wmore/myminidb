@@ -8,8 +8,11 @@ import db.filecontrol.MTableFileControl;
 import sun.rmi.runtime.Log;
 import util.LogToll;
 
+import javax.print.DocFlavor;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 
 /**************
@@ -46,6 +49,7 @@ public class DBEngine {
     public DBEngine() {
     }
 
+    //建表
     public void createTable(String tableName, ArrayList<String> attribute_types, ArrayList<String> attribute_names) {
         String fileContent = mTableFileControl.readFile(SUBS_TABLES);
         System.out.println(fileContent);
@@ -75,6 +79,7 @@ public class DBEngine {
 //        tablesMap.put(name, newTable);
     }
 
+    //查表
     public ArrayList<ArrayList<String>> queryAttributeTuple(String tableName) {
         if (!hasTable(tableName)) {
             return null;
@@ -97,6 +102,69 @@ public class DBEngine {
         return attributeTuple;
     }
 
+    /**
+     * 根据条件查询表数据
+     *
+     * @param tableName
+     * @return
+     */
+    public ArrayList<ArrayList<String>> queryAttributeTupleByCondition(String tableName, ArrayList<String> conAttrNames,
+                                                                       ArrayList<String> conAttrValues) {
+        if (!hasTable(tableName)) {
+            return null;
+        }
+        //从表数据文件里获取数据
+//        String tableContent = mTableFileControl.readFile(findTableFile(tableName));
+//        System.out.println(tableContent);
+//        int length = tableContent.split(";").length;
+
+//        ArrayList<ArrayList<String>> attributeTuple = new ArrayList<ArrayList<String>>();
+//        for (int i = 0; i < length - 1; i++) {
+//            ArrayList<String> attributeRow = new ArrayList<String>();
+//            String subContent = tableContent.split(";")[i];
+//            int length2 = subContent.split("@_@").length;
+//            for (int j = 0; j < length2; j++) {
+//                attributeRow.add(subContent.split("@_@")[j]);
+//            }
+//            attributeTuple.add(attributeRow);
+//        }
+
+        ArrayList<String[]> structure = getTableStructure(tableName);
+        ArrayList<Integer> attrNamesIndexList = getAttrNameIndex(conAttrNames, structure);
+        LogToll.printLog("queryAttributeTupleByCondition", "All attrbute index are queried are:" + attrNamesIndexList);
+        //从表数据文件里获取数据
+        String tableContent = mTableFileControl.readFile(findTableFile(tableName));
+
+        System.out.println(tableContent);
+
+
+        String[] splitArray = tableContent.split(";");
+        ArrayList<ArrayList<String>> attributeTuple = new ArrayList<ArrayList<String>>();
+
+        boolean finded = true;
+
+        for (int i = 0; i < splitArray.length - 1; i++) {
+            String subContent = splitArray[i];
+            String[] splitValues = subContent.split("@_@");
+            for (int j = 0; j < attrNamesIndexList.size(); j++) {
+                if (conAttrValues.indexOf(splitValues[j]) != j) {
+                    finded = false;
+                    break;
+                }
+            }
+            if (finded) {
+                List<String> list = Arrays.asList(splitValues);
+                ArrayList<String> attributeRow = new ArrayList<String>(list.size());
+                attributeRow.addAll(list);
+                attributeTuple.add(attributeRow);
+            }
+            finded = true;
+        }
+
+
+        return attributeTuple;
+    }
+
     //从找到tableName对应的文件名
     public String findTableFile(String tableName) {
 
@@ -115,6 +183,7 @@ public class DBEngine {
         return tableFileName;
     }
 
+    //插入数据
     public boolean insertVaulesTable(String tableName, ArrayList<String> attrNames, ArrayList<String> attrValues) {
         if (!hasTable(tableName)) {
             return false;
@@ -172,7 +241,7 @@ public class DBEngine {
         return false;
     }
 
-
+    //检查表是否存在
     public boolean hasTable(String tableName) {
         String tableFileName = findTableFile(tableName);
         if (tableFileName == null) {
@@ -182,20 +251,14 @@ public class DBEngine {
         return true;
     }
 
-
+    //删除表数据
     public boolean deleteValues(String tableName, ArrayList<String> attrNames, ArrayList<String> attrValues) {
 
         StringBuilder newContent = new StringBuilder();
         ArrayList<String[]> structure = getTableStructure(tableName);
 
-        ArrayList<Integer> attrNamesIndexList = new ArrayList<Integer>();
-        LogToll.printLog("deletevalues", "All attrbute name will be deleted are: " + attrNames);
-        for (String attrName : attrNames) {
-            for (int i = 0; i < structure.size(); i++) {
-                if (structure.get(i)[0].equals(attrName))
-                    attrNamesIndexList.add(i);
-            }
-        }
+        ArrayList<Integer> attrNamesIndexList = getAttrNameIndex(attrNames, structure);
+
         LogToll.printLog("deletevalues", "All attrbute index will be deleted are:" + attrNamesIndexList);
         //从表数据文件里获取数据
         String tableContent = mTableFileControl.readFile(findTableFile(tableName));
@@ -211,7 +274,6 @@ public class DBEngine {
         for (int i = 0; i < length - 1; i++) {
             ArrayList<String> attributeRow = new ArrayList<String>();
             String subContent = tableContent.split(";")[i];
-            int length2 = subContent.split("@_@").length;
             String[] splitValues = subContent.split("@_@");
             for (int j = 0; j < attrNamesIndexList.size(); j++) {
                 if (attrValues.indexOf(splitValues[j]) != j) {
@@ -219,6 +281,7 @@ public class DBEngine {
                     break;
                 }
             }
+            //删除
             if (finded) {
                 String deletedStr = subContent + ";";
                 LogToll.printLog("deletevalues", "whole data before delete is : " + tableContent);
@@ -234,50 +297,82 @@ public class DBEngine {
         return true;
     }
 
-
-    public boolean updateValues(String tableName, ArrayList<String> conAttrNames, ArrayList<String> conAttrValues,
-                                ArrayList<String> updateObjectAttrNames, ArrayList<String> updateObjectAttrValues) {
-
-        StringBuilder newContent = new StringBuilder();
-        ArrayList<String[]> structure = getTableStructure(tableName);
+    /**
+     * 根据表结构查attrname顺序列表
+     *
+     * @param searchAttrNames
+     * @param structure
+     * @return
+     */
+    public ArrayList<Integer> getAttrNameIndex(ArrayList<String> searchAttrNames, ArrayList<String[]> structure) {
 
         ArrayList<Integer> attrNamesIndexList = new ArrayList<Integer>();
-        LogToll.printLog("deletevalues", "All attrbute name will be deleted are: " + conAttrNames);
-        for (String attrName : conAttrNames) {
+        LogToll.printLog("deletevalues", "All attrbute name will be deleted are: " + searchAttrNames);
+        for (String attrName : searchAttrNames) {
             for (int i = 0; i < structure.size(); i++) {
                 if (structure.get(i)[0].equals(attrName))
                     attrNamesIndexList.add(i);
             }
         }
-        LogToll.printLog("deletevalues", "All attrbute index will be deleted are:" + attrNamesIndexList);
+        return attrNamesIndexList;
+    }
+
+    //修改表数据
+    public boolean updateValues(String tableName, ArrayList<String> conAttrNames, ArrayList<String> conAttrValues,
+                                ArrayList<String> updateObjectAttrNames, ArrayList<String> updateObjectAttrValues) {
+        StringBuilder oldContent = null;
+        StringBuilder newContent = null;
+        ArrayList<String[]> structure = getTableStructure(tableName);
+
+        ArrayList<Integer> conAttrNamesIndexList = getAttrNameIndex(conAttrNames, structure);
+        ArrayList<Integer> updateAttrNamesIndexList = getAttrNameIndex(updateObjectAttrNames, structure);
+
+        LogToll.printLog("deletevalues", "All attrbute index will be deleted are:" + conAttrNamesIndexList);
         //从表数据文件里获取数据
         String tableContent = mTableFileControl.readFile(findTableFile(tableName));
 
         System.out.println(tableContent);
 
-        int length = tableContent.split(";").length;
-
         ArrayList<ArrayList<String>> attributeTuple = new ArrayList<ArrayList<String>>();
 
         boolean finded = true;
 
-        for (int i = 0; i < length - 1; i++) {
+        String[] splitArray = tableContent.split(";");
+
+        for (int i = 0; i < splitArray.length - 1; i++) {
             ArrayList<String> attributeRow = new ArrayList<String>();
-            String subContent = tableContent.split(";")[i];
-            int length2 = subContent.split("@_@").length;
+            String subContent = splitArray[i];
+
             String[] splitValues = subContent.split("@_@");
-            for (int j = 0; j < attrNamesIndexList.size(); j++) {
+
+            for (int j = 0; j < conAttrNamesIndexList.size(); j++) {
                 if (conAttrValues.indexOf(splitValues[j]) != j) {
                     finded = false;
                     break;
                 }
             }
             if (finded) {
-                String deletedStr = subContent + ";";
-                LogToll.printLog("deletevalues", "whole data before delete is : " + tableContent);
-                LogToll.printLog("deletevalues", "the String that will be deleted is " + deletedStr);
-//                tableContent.replace(deletedStr,"");
-                mTableFileControl.deleteString(findTableFile(tableName), deletedStr);
+                oldContent = new StringBuilder();
+                newContent = new StringBuilder();
+
+                for (int l = 0; l < splitValues.length; l++) {
+                    oldContent.append(splitValues[l]);
+                    if (splitValues.length - 1 != l)
+                        oldContent.append("@_@");
+                }
+                for (int k = 0; k < updateAttrNamesIndexList.size(); k++) {
+                    splitValues[updateAttrNamesIndexList.get(k)] = updateObjectAttrValues.get(k);
+                }
+
+                for (int l = 0; l < splitValues.length; l++) {
+                    newContent.append(splitValues[l]);
+                    if (splitValues.length - 1 != l)
+                        newContent.append("@_@");
+                }
+
+                LogToll.printLog("updatevalues", "the string data before update is : " + oldContent);
+                LogToll.printLog("updatevalues", "the String that will be update to  " + newContent);
+                mTableFileControl.updateString(findTableFile(tableName), oldContent.toString(), newContent.toString());
                 LogToll.printLog("deletevalues", "whole data before delete is : " + tableContent);
             }
             finded = true;
@@ -285,5 +380,7 @@ public class DBEngine {
 
 
         return true;
+
+
     }
 }
