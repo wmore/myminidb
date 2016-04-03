@@ -8,7 +8,14 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-//        writeTest();
+        mytest();
+//        String str = "ioiobbbb1@_@ioiobbbb2;A1@_@A2;B1@_@B2;C1@_@C2;D1@_@D2;";
+//        str= str.replaceAll("D","jk");
+//        System.out.println(str);
+    }
+
+    public  static  void mytest(){
+        //        writeTest();
 //        readTest();
         DBEngine dbEngine = new DBEngine();
 //        dbEngine.writeTable("lalal");
@@ -20,16 +27,17 @@ public class Main {
         for (int i =0 ;i <2;i ++){
             types.add("CHAR");
             names.add("attr"+(i+1));
-            values.add("value"+(i+1));
+            values.add("D"+(i+1));
         }
 
-        dbEngine.createTable("test",types,names);
-        dbEngine.insertVaulesTable("test",names,values);
+//        dbEngine.createTable("test",types,names);
+//        dbEngine.insertVaulesTable("test",names,values);
+//        dbEngine.truncateTable("test");
+        dbEngine.deleteValues("test",names,values);
         System.out.println(dbEngine.queryAttributeTuple("test"));
 
 //        System.out.println(dbEngine.queryAttributeTuple("lala"));
 //        System.out.println(dbEngine.getTableStructure("hia").size());
-
 
 
     }
