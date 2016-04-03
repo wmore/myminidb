@@ -1,0 +1,1 @@
+test:attr1,CHAR@_@attr2,CHAR;

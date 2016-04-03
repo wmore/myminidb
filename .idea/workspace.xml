@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4c3facd9-ae25-453e-89c7-97aa4ffd9841" name="Default" comment="wyue&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/util/LogToll.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/SUBS_TABLES.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/SUBS_TABLES_ATTRIBUTE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/files/test.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/myminidb/Main.class" afterPath="$PROJECT_DIR$/out/production/myminidb/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/myminidb/db/bean/DBEngine.class" afterPath="$PROJECT_DIR$/out/production/myminidb/db/bean/DBEngine.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/myminidb/db/filecontrol/MTableFileControl.class" afterPath="$PROJECT_DIR$/out/production/myminidb/db/filecontrol/MTableFileControl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/db/bean/DBEngine.java" afterPath="$PROJECT_DIR$/src/db/bean/DBEngine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/db/filecontrol/MTableFileControl.java" afterPath="$PROJECT_DIR$/src/db/filecontrol/MTableFileControl.java" />
-    </list>
+    <list default="true" id="4c3facd9-ae25-453e-89c7-97aa4ffd9841" name="Default" comment="wyue&#10;" />
     <list id="06ea49f5-a751-4563-8a2d-bb72aff18b24" name="Failed commit: Default" comment="wyue&#10;" />
     <ignored path="myminidb.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -733,7 +721,7 @@
       <option name="presentableId" value="Default" />
       <updated>1458911328647</updated>
       <workItem from="1458911332564" duration="32036000" />
-      <workItem from="1459179689751" duration="17641000" />
+      <workItem from="1459179689751" duration="17686000" />
     </task>
     <task id="LOCAL-00001" summary="wyue&#10;">
       <created>1459058170062</created>
@@ -753,7 +741,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49677000" />
+    <option name="totallyTimeSpent" value="49722000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
